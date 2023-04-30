@@ -29,6 +29,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id])
 
 
@@ -61,7 +62,7 @@ const SingleProductPage = () => {
     company,
     images,
   } = product;
-  console.log(product.stars)
+
 
   return (
     <Wrapper>
@@ -90,7 +91,7 @@ const SingleProductPage = () => {
               {company}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product = {product} />}
+            {stock > 0 && <AddToCart product={product} />}
           </section>
 
         </div>
