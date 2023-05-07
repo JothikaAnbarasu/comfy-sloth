@@ -9,9 +9,13 @@ const CheckoutPage = () => {
   return <main>
     <PageHero title="checkout" />
     <Wrapper className='page'>
-      <h1>chekout here</h1>
+      <StripeCheckout />
     </Wrapper>
   </main>
 }
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+`
 export default CheckoutPage

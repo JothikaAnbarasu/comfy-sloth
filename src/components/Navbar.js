@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { links } from '../utils/constants'
@@ -16,7 +15,7 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to='/'>
-            <img src={logo} alt='comfy sloth' />
+            <h2 style={{ fontFamily: 'Courgette' }}><span style={{ color: "black" }}>Comfy</span><span style={{ color: "rgb(171,122,95)" }}>Sloth</span></h2>
           </Link>
           <button type='button' className='nav-toggle' onClick={openSidebar}>
             <FaBars />
@@ -39,7 +38,7 @@ const Nav = () => {
         </ul>
         <CartButtons />
       </div>
-    </NavContainer>
+    </NavContainer >
   )
 }
 
