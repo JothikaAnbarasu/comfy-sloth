@@ -32,5 +32,5 @@ root.render(
         </FilterProvider>
       </ProductsProvider>
     </UserProvider>
-  </Auth0Provider>
+  </Auth0Provider >
 );

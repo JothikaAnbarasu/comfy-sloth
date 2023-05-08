@@ -57,6 +57,7 @@ const CheckoutForm = () => {
       );
       setClientSecret(data.clientSecret);
 
+
     } catch (error) {
       // console.log(error.response)
     }
@@ -74,6 +75,7 @@ const CheckoutForm = () => {
     setError(event.error ? event.error.message : '');
   }
   const handleSubmit = async (ev) => {
+    console.log("submitting")
     ev.preventDefault();
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
@@ -84,7 +86,9 @@ const CheckoutForm = () => {
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
+      console.log("error")
     } else {
+      console.log("succeeded")
       setError(null);
       setProcessing(false);
       setSucceeded(true);
@@ -111,8 +115,8 @@ const CheckoutForm = () => {
     )}
     <form id='payment-form' onSubmit={handleSubmit}> </form>
     <CardElement id='card-element' options={cardStyle} onChange={handleChange} />
-    <button disabled={processing || disabled || succeeded} id="submit">
-      <span id='button-text'>
+    <button disabled={processing || disabled || succeeded} id="submit" onClick={handleSubmit} >
+      <span id='button-text' >
         {processing ? <div className='spinner' id='spinner'></div> : 'Pay'}
       </span>
     </button>
